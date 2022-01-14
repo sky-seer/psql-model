@@ -1,0 +1,1 @@
+INSERT INTO gateways VALUES ($1, $2);

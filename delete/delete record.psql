@@ -1,0 +1,1 @@
+DELETE FROM record WHERE id=$1

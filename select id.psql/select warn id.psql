@@ -1,0 +1,1 @@
+SELECT * FROM warns WHERE id=$1
