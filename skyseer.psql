@@ -10,7 +10,7 @@ CREATE TABLE users (
 CREATE TABLE gateways (
     id INTEGER GENERATED ALWAYS AS IDENTITY, 
     imei VARCHAR(255) NOT NULL,
-    name VARCHAR(255)
+    name VARCHAR(255),
     PRIMARY KEY (id)
 );
 CREATE TABLE sondes (
@@ -18,7 +18,7 @@ CREATE TABLE sondes (
     id_gateway INTEGER NOT NULL,
     name VARCHAR(255),
     battery_max INTEGER NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
     CONSTRAINT fk_gateway 
         FOREIGN KEY (id_gateway)
             REFERENCES gateways (id) 
@@ -30,7 +30,7 @@ CREATE TABLE records (
     rssi_signal INTEGER,
     temperature FLOAT,
     humidity INT,
-    time DateTime,
+    time TIMESTAMP,
     CONSTRAINT fk_sonde
         FOREIGN KEY(id_sonde)
             REFERENCES sondes(id)
@@ -38,7 +38,7 @@ CREATE TABLE records (
 CREATE TABLE warns (
     id INTEGER GENERATED ALWAYS AS IDENTITY,
     id_sonde INTEGER NOT NULL,
-    start DateTime,
+    start TIMESTAMP,
     level INTEGER,
     CONSTRAINT fk_sonde
         FOREIGN KEY (id_sonde)
