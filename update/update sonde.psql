@@ -1,1 +1,0 @@
-UPDATE sondes SET $1 WHERE $2

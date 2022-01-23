@@ -1,1 +1,0 @@
-SELECT * FROM sondes WHERE id=$1

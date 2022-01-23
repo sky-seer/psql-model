@@ -1,0 +1,1 @@
+SELECT * FROM sensors WHERE gateway_id=$1

@@ -1,0 +1,1 @@
+UPDATE sensors SET $1 WHERE $2
