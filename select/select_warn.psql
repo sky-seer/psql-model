@@ -1,1 +1,1 @@
-SELECT * FROM warns WHERE $1
+SELECT $2 FROM warns WHERE $1

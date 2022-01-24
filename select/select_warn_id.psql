@@ -1,1 +1,1 @@
-SELECT * FROM warns WHERE id=$1
+SELECT $2 FROM warns WHERE id=$1

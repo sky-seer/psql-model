@@ -1,1 +1,1 @@
-SELECT * FROM gateways WHERE id=$1
+SELECT $2 FROM gateways WHERE id=$1

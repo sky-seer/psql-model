@@ -1,1 +1,1 @@
-SELECT * FROM records WHERE id=$1
+SELECT $2 FROM records WHERE id=$1

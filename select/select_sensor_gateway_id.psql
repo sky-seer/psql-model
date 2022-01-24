@@ -1,1 +1,1 @@
-SELECT * FROM sensors WHERE gateway_id=$1
+SELECT $2 FROM sensors WHERE gateway_id=$1

@@ -1,28 +1,29 @@
 CREATE DATABASE skyseer;
+
 CREATE TABLE users (
     id INTEGER GENERATED ALWAYS AS IDENTITY,
     token VARCHAR (255) NOT NULL,
     name VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id,token)
+    PRIMARY KEY(id)
 );
-
 CREATE TABLE gateways (
     id INTEGER GENERATED ALWAYS AS IDENTITY, 
-    imei VARCHAR(255) NOT NULL,
+    host VARCHAR(255) NOT NULL,
+    post INTEGER NOT NULL,
     name VARCHAR(255),
-    PRIMARY KEY (id)
+    PRIMARY KEY(id)
 );
 CREATE TABLE sensors (
     id INTEGER GENERATED ALWAYS AS IDENTITY, 
-    imei VARCHAR(255) NOT NULL,
+    imei VARCHAR(255) UNIQUE NOT NULL,
     id_gateway INTEGER NOT NULL,
     name VARCHAR(255),
     protocol_type VARCHAR(255) NOT NULL,
     hardware_type VARCHAR(255) NOT NULL,
     battery_max INTEGER NOT NULL,
-    PRIMARY KEY (id, imei),
-    CONSTRAINT fk_gateway 
+	PRIMARY KEY(id),
+    CONSTRAINT fk_gateway
         FOREIGN KEY (id_gateway)
             REFERENCES gateways (id) 
 );
@@ -36,7 +37,7 @@ CREATE TABLE records (
     time TIMESTAMP,
     CONSTRAINT fk_sonde
         FOREIGN KEY(id_sensor)
-            REFERENCES sondes(id)
+            REFERENCES sensors(id)
 );
 CREATE TABLE warns (
     id INTEGER GENERATED ALWAYS AS IDENTITY,
@@ -45,6 +46,5 @@ CREATE TABLE warns (
     level INTEGER,
     CONSTRAINT fk_sonde
         FOREIGN KEY (id_sensor)
-            REFERENCES sondes (id)
-            
+            REFERENCES sensors(id)
 );
