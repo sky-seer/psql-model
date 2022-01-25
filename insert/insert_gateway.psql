@@ -1,1 +1,1 @@
-INSERT INTO gateways VALUES ($1, $2);
+INSERT INTO gateways VALUES (DEFAULT, $1, $2);
