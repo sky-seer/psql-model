@@ -1,1 +1,1 @@
-SELECT $1 FROM records
+SELECT * FROM records LIMIT $1 OFFSET $2;

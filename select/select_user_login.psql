@@ -1,0 +1,1 @@
+SELECT login, token FROM users WHERE login=$1 AND token=$2;

@@ -1,0 +1,1 @@
+SELECT $1 FROM records WHERE gateway_id=$2
